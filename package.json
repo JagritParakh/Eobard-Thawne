@@ -1,0 +1,22 @@
+{
+  "name": "eobardthawne",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^14.6.0",
+    "got": "^11.8.3",
+    "hmtai": "^3.2.2",
+    "node-fetch": "^3.3.0",
+    "promise-mysql": "^5.2.0",
+    "quick.db": "^9.0.6",
+    "youtube-sr": "^4.3.4",
+    "yt-search": "^2.10.3"
+  }
+}
