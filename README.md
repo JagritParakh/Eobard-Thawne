@@ -7,7 +7,7 @@
 
 ---
 # Installation:
-### First of all, clone the repository into a directory by doing `git clone https://github.com/TheCoderSimp/Eobard-Thawne.git` and run `npm install`
+### First of all, clone the repository into a directory by doing `git clone https://github.com/TheCoderSimp/Eobard-Thawne.git .` and run `npm install`
 ### After everything is installed, continue with the following steps
 <br> </br>
 ### Rename example.config.json to config.json. This is what it should look like
