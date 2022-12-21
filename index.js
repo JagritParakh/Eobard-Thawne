@@ -1,5 +1,6 @@
 const { Client,GatewayIntentBits, Collection, REST, Routes } = require('discord.js')
-const { clientId, guildId, token } = require('./config.json');
+const { clientId, guildId, token, mongo } = require('./config.json');
+const { connect, connection } = require('mongoose')
 const fs = require('node:fs')
 const path = require('node:path')
 const client = new Client({
@@ -58,6 +59,16 @@ for (const file of eventFiles) {
 	}
 }
 
+// For mongoose
+
+const mongoPath = path.join(__dirname, 'mongo')
+const mongoFiles = fs.readdirSync(mongoPath).filter(file => file.endsWith('.js'))
+
+for(file of mongoFiles){
+	const event = require(`./mongo/${file}`)
+	if(event.once) connection.once(event.name, (...args) => event.execute(...args))
+	else connection.on(event.name, (...args) => event.execute(...args));
+}
 
 
 const rest = new REST({ version: '10' }).setToken(token);
@@ -75,6 +86,8 @@ const rest = new REST({ version: '10' }).setToken(token);
 		console.error(error);
 	}
 })();
-
+(async () => {
+	await connect(mongo).catch(console.error)
+})();
 
 client.login(token)

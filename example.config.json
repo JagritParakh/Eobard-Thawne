@@ -3,5 +3,6 @@
     "clientId": "",
     "guildId": "",
     "tenorId": "",
-    "verifyRole": ""
+    "verifyRole": "",
+    "mongo": ""
 }

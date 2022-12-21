@@ -13,6 +13,26 @@ module.exports = {
 	const { executor, target } = deletionLog;
 	console.log(target.id + "\n" + executor.tag);
 
+	const snipe = require("../schemas/snipeSchema")
+	let data = await snipe.findOne({channelId:message.channel.id})
+	if(!data){
+		let newdata = new snipe({
+			channelId: message.channel.id,
+			message: message.content,
+			author: message.author.tag,
+			avatar: message.author.displayAvatarURL(),
+			time: Math.floor(date/1000)
+		})
+		return await newdata.save()
+	}
+
+	await snipe.findOneAndUpdate({
+		channelId: message.channel.id,
+		message: message.content,
+		author: message.author.tag,
+		avatar: message.author.displayAvatarURL(),
+		time: Math.floor(date/1000)
+	})
 	if (target.id === message.author.id) {
 		console.log(`A message by ${message.author.tag} was deleted by ${executor.tag}.`);
 	} else {

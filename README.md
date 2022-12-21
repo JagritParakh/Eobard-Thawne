@@ -16,13 +16,21 @@
     "token": "",
     "clientId": "",
     "guildId": "",
-    "tenorId": "",   //Optional
-    "verifyRole": "" //Optional
+    "tenorId": "",    //Optional
+    "verifyRole": "", //Optional
+    "mongo": ""
 }
 ```
-### Fill out all the +requirements
+### Fill out all the requirements
 <br> </br>
 
+## To Fill out the `mongo` in the json, do the following steps
+
+### Go to the [MongoDB website](https://www.mongodb.com/) and make a account
+### After doing so, make a new cluster. Make a new username and a password as well.
+### After making a cluster, username and password, go to `Database` and click on `Connect`. Then click on the 2nd option, `Connect your application to your cluster using MongoDB's native drivers`.
+### Copy the connection string and replace the `<password>` section of the string with the password you used in the cluster earlier
+### Finally paste it into the `config.json` and it should be all ready to go
 ---
 
 # Optional Commands
