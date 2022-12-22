@@ -11,7 +11,6 @@
   "license": "ISC",
   "dependencies": {
     "discord.js": "^14.6.0",
-    "got": "^11.8.3",
     "hmtai": "^3.2.2",
     "mongoose": "^6.8.1",
     "node-fetch": "^3.3.0",

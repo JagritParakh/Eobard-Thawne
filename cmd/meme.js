@@ -1,33 +1,30 @@
 const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
-const got = require('got')
+const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('meme')
 		.setDescription('Random Meme'),
 	async execute(interaction) {
-      const embed = new EmbedBuilder()
-      got('https://www.reddit.com/r/memes/random/.json')
-		.then(response => {
-			const [list] = JSON.parse(response.body);
-			const [post] = list.data.children;
+	const resp = await fetch('https://www.reddit.com/r/memes/random/.json')
+	const list = await resp.json()
+	const meme = list[0].data.children[0].data
+	console.log(meme);
+	const title = meme.title
+	const author = meme.author
+	const img = meme.url
+	const url = `https://reddit.com/${meme.permalink}`
+	const comments = meme.num_comments
+	const upvotes = meme.ups
 
-			const permalink = post.data.permalink;
-			const memeUrl = `https://reddit.com${permalink}`;
-			const memeImage = post.data.url;
-			const memeTitle = post.data.title;
-			const memeUpvotes = post.data.ups;
-			const memeNumComments = post.data.num_comments;
+	const embed = new EmbedBuilder()
+		.setTitle(title)
+		.setColor('Random')
+		.setImage(img)
+		.setURL(url)
+		.setTimestamp()
+		.setFooter({text: `Meme by: ${author} \t 💬 ${comments} \t ⬆️ ${upvotes}`})
 
-			embed.setTitle(`${memeTitle}`);
-			embed.setURL(`${memeUrl}`);
-			embed.setColor('Random');
-			embed.setImage(memeImage);
-			embed.setFooter({
-				text:`👍 ${memeUpvotes} 💬 ${memeNumComments}`
-			});
-
-			interaction.reply({ embeds: [embed] });
-		})
-		.catch(console.error);
+	await interaction.reply({embeds: [embed]})
+	
 	},
 };
