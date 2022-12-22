@@ -24,7 +24,7 @@ module.exports = {
                     name: 'Old Message:', value: data.oldMessage, inline:true
                 },
                 {
-                    name: 'Edited Messaged: ', value: data.newMessage, inline: true 
+                    name: 'Edited Message: ', value: data.newMessage, inline: true 
                 },
                 {
                     name: "Sent in: ", value: `<#${data.channelId}>`
