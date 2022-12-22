@@ -1,5 +1,4 @@
 const { SlashCommandBuilder, EmbedBuilder} = require('discord.js');
-const youtube = require('./youtube');
 const YouTube = require("youtube-sr").default;
 
 module.exports = {
