@@ -8,7 +8,6 @@ module.exports = {
 	const resp = await fetch('https://www.reddit.com/r/memes/random/.json')
 	const list = await resp.json()
 	const meme = list[0].data.children[0].data
-	console.log(meme);
 	const title = meme.title
 	const author = meme.author
 	const img = meme.url
