@@ -4,5 +4,6 @@
     "guildId": "",
     "tenorId": "",
     "verifyRole": "",
-    "mongo": ""
+    "mongo": "",
+    "openAIKey": ""
 }
