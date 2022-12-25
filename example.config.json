@@ -2,8 +2,9 @@
     "token": "",
     "clientId": "",
     "guildId": "",
-    "tenorId": "",
-    "verifyRole": "",
+    "botId": "",
+    "tenorId": "",    
+    "verifyRole": "", 
     "mongo": "",
     "openAIKey": ""
 }

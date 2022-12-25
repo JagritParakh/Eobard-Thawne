@@ -16,14 +16,15 @@
     "token": "",
     "clientId": "",
     "guildId": "",
-    "tenorId": "",    //Optional
-    "verifyRole": "", //Optional
-    "mongo": ""
+    "botId": "",
+    "tenorId": "",    
+    "verifyRole": "", 
+    "mongo": "",
+    "openAIKey": ""
 }
 ```
 ### Fill out all the requirements
 <br> </br>
-
 ## To Fill out the `mongo` in the json, do the following steps
 
 ### Go to the [MongoDB website](https://www.mongodb.com/) and make a account
@@ -31,6 +32,13 @@
 ### After making a cluster, username and password, go to `Database` and click on `Connect`. Then click on the 2nd option, `Connect your application to your cluster using MongoDB's native drivers`.
 ### Copy the connection string and replace the `<password>` section of the string with the password you used in the cluster earlier
 ### Finally paste it into the `config.json` and it should be all ready to go
+<br> </br>
+## To fill out the `openAIKey` in the json, do the following steps
+
+### Go to the [OpenAI website](https://beta.openai.com/) and make an account
+### Then click on the top right corner and click on `View API Keys` on the dropdown
+### Click on `Create a new secret key`
+### Copy the key and paste it 
 ---
 
 # Optional Commands
