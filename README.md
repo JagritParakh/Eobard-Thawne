@@ -79,4 +79,4 @@
 
 ---
 
-# More and more features will by added by me in the future. Those will include economy commands, modals, games, etc.
+# More and more features will by added by me in the future. Those will include music commands, modals, games, etc.

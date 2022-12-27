@@ -1,11 +1,47 @@
 const { Events } = require('discord.js')
 const { Configuration, OpenAIApi } = require("openai");
 const { openAIKey, botId } = require('../config.json')
+const balance = require('../schemas/balanceSchema')
+const { Types } = require('mongoose')
+
+//Get the user's balance
+async function fetchBalance(user){
+  let storedBalance = await balance.findOne({
+      userId: user
+  })
+  if(!storedBalance){
+      storedBalance = await new balance({
+          _id: Types.ObjectId(),
+          userId: user
+      });
+      await storedBalance
+          .save()
+          .catch(console.error)
+      return storedBalance
+  }else return storedBalance
+}
 
 module.exports = {
     name: Events.MessageCreate,
     async execute(message){
-        if(message.author.bot) return
+        if(message.author.bot) return // Ignore bot messages
+
+        // Get monei per message if /start has been run
+
+        const storedBalance = await fetchBalance(message.author.id)
+
+        if(storedBalance.bal !== 0){
+          let randomAmount = Math.floor(Math.random() * 9) + 1
+
+          await balance.findOneAndUpdate({
+            _id: storedBalance._id
+          },
+          {
+            bal: storedBalance.bal + randomAmount
+          }).then(console.log(`Added ${randomAmount} to ${message.author.tag}`)).catch(console.error)
+        }
+
+        // Chatbot
         let args
         let msgPrompt
         let send = false
@@ -35,6 +71,7 @@ module.exports = {
               respArray.shift()
               const resp = respArray.join(' ')
               message.reply(resp)
-    }
+        }
+
 }
 }
