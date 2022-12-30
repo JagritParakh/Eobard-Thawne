@@ -3,6 +3,7 @@ module.exports = {
     name: Events.MessageDelete,
     async execute(message){
     if (!message.guild) return;
+	if(message.author.bot) return // Ignore bot messages
 	const fetchedLogs = await message.guild.fetchAuditLogs({
 		limit: 1,
 		type: AuditLogEvent.MessageDelete,

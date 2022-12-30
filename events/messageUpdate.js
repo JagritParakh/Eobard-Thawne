@@ -4,7 +4,7 @@ module.exports = {
     name: Events.MessageUpdate,
     async execute(oldMessage, newMessage){
         // console.log(newMessage.content)
-
+        if(newMessage.author.bot) return // Ignore bot messages
         const esnipe = require("../schemas/esnipeSchema")
         let data = await esnipe.findOne({channelId: newMessage.channel.id})
         const date = Date.now()
