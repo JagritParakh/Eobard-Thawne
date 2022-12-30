@@ -6,5 +6,6 @@
     "tenorId": "",    
     "verifyRole": "", 
     "mongo": "",
-    "openAIKey": ""
+    "openAIKey": "",
+    "memeAPI": ""
 }

@@ -20,7 +20,8 @@
     "tenorId": "",    
     "verifyRole": "", 
     "mongo": "",
-    "openAIKey": ""
+    "openAIKey": "",
+    "memeAPI": "",
 }
 ```
 ### Fill out all the requirements
@@ -39,6 +40,13 @@
 ### Then click on the top right corner and click on `View API Keys` on the dropdown
 ### Click on `Create a new secret key`
 ### Copy the key and paste it 
+<br> </br>
+## To Fill out the `memeAPI` in the json, do the following steps
+
+### Join [memer-api's Discord Server](https://discord.gg/tjTZEXtUdH)
+### Go to `#bot_commands` channel and type in m!token
+### A bot will dm you the token
+### Copy and paste it into the `config.json`
 ---
 
 # Optional Commands
