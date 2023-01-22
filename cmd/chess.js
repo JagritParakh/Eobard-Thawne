@@ -13,22 +13,29 @@ module.exports = {
                 .setRequired(true)),
     async execute(interaction){
 
+        const userSearch = interaction.options.getString('username')
+        let userExists = true;
+        const response = await chessAPI
+            .getPlayer(userSearch)
+            .catch(e => userExists = false)
+
+        if(!userExists){
+            const userDoesntExist = new EmbedBuilder()
+                .setTitle('Player doesnt exist')
+                .setColor('Random')
+                .setTimestamp()
+                .setFooter({text: `Executed by ${interaction.user.username}`})
+            console.log('User doesnt exist');
+            await interaction.reply({embeds: [userDoesntExist]})
+            return;
+        }
+
         const waitingEmbed = new EmbedBuilder()
             .setTitle('Getting Player info')
             .setColor('Random')
             .setTimestamp()
             .setFooter({text: `Executed by ${interaction.user.username}`})
         await interaction.reply({embeds: [waitingEmbed]})
-        const userSearch = interaction.options.getString('username')
-        let userExists = true;
-        const response = await chessAPI
-            .getPlayer(userSearch)
-            .catch(err => {
-                console.error(err)
-                userExists = false
-            })
-
-        if(!userExists)return console.log('User doesnt exist');
 
         const data = response.body
         
