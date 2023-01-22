@@ -14,9 +14,10 @@ module.exports = {
     async execute(interaction){
 
         const userSearch = interaction.options.getString('username')
+        const validUserSearch = userSearch.split(' ').join('') //So that dumb people like in my server dont enter usernames with spaces in them
         let userExists = true;
         const response = await chessAPI
-            .getPlayer(userSearch)
+            .getPlayer(validUserSearch)
             .catch(e => userExists = false)
 
         if(!userExists){
@@ -49,7 +50,7 @@ module.exports = {
         const avatar = data.avatar
         const country = data.country.split('https://api.chess.com/pub/country/')[1]
 
-        const resp = await chessAPI.getPlayerStats(userSearch)
+        const resp = await chessAPI.getPlayerStats(validUserSearch)
         const stats = resp.body
         console.log(stats);
 
