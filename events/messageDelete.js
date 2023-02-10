@@ -39,6 +39,6 @@ module.exports = {
 	} else {
 		console.log(`A message by ${message.author.tag} was deleted by themselves`);
 	}
-	console.log(message.content);
+	console.log("Content: ", message.content);
     }
 }

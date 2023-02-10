@@ -12,6 +12,7 @@
   "dependencies": {
     "canvacord": "^5.4.8",
     "discord.js": "^14.6.0",
+    "google-it": "^1.6.4",
     "hmtai": "^3.2.2",
     "memer-api": "^4.0.2",
     "mongoose": "^6.8.1",
