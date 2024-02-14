@@ -1,8 +1,7 @@
+### Update: I have abandoned this project, it will get no more updates, the code will still work however. I plan on making a new bot completely from scratch that would include more features and better functionality
 # Eobard Thawne
 
-### A simple multipurpose discord bot built in Discord.JS V14.
-
-
+## A simple multipurpose discord bot built in Discord.JS V14.
 
 
 ---
@@ -86,5 +85,3 @@
 ```
 
 ---
-
-# More and more features will by added by me in the future. Those will include music commands, modals, games, etc.
